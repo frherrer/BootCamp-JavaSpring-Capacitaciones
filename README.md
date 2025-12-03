@@ -200,3 +200,73 @@ Respuesta:
 ![Catalogo](img//6.png)
 ![Catalogo](img//7.png)
 📌
+
+## Diagrama de Clases
+```mermaid
+classDiagram
+    class Curso {
+        +Long id
+        +String nombre
+        +String descripcion
+        +LocalDate fechaInicio
+        +LocalDate fechaFin
+        +Instructor instructor
+        +List<Inscripcion> inscripciones
+    }
+
+    class Instructor {
+        +Long id
+        +String nombre
+        +String email
+        +List<Curso> cursos
+    }
+
+    class Empleado {
+        +Long id
+        +String nombre
+        +String email
+        +List<Inscripcion> inscripciones
+    }
+
+    class Inscripcion {
+        +Long id
+        +Empleado empleado
+        +Curso curso
+        +LocalDate fechaInscripcion
+    }
+
+    class Usuario {
+        +Long id
+        +String username
+        +String password
+        +String role
+    }
+
+    Curso "1" --> "1" Instructor : asignado a
+    Curso "1" --> "0..*" Inscripcion : tiene
+    Empleado "1" --> "0..*" Inscripcion : registra
+    Inscripcion "1" --> "1" Curso : pertenece
+    Usuario --> Empleado : opcional
+```
+
+## Diagrama del Flujo de Navegación
+```mermaid
+flowchart TD
+
+    A[Login - Basic Auth] -->|admin/admin| B[Panel Admin]
+    A -->|empleado/empleado| C[Panel Empleado]
+
+    B --> B1[Gestionar Cursos<br>/admin/cursos]
+
+
+    C --> C1[Ver Cursos Disponibles<br>/empleado/cursos]
+ 
+
+    B1 -->|REST| R1[GET /api/cursos]
+    C1 -->|REST| R1
+
+    A--> |REST| R2[POST /api/inscripciones]
+    A -->|REST| R1[GET /api/cursos]
+    B -.-> L[Logout]
+    C -.-> L
+```
