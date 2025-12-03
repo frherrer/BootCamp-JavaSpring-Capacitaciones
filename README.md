@@ -16,8 +16,8 @@ Formas parte del equipo de desarrollo de un sistema interno para una empresa que
 2. Panel de empleado para ver los cursos disponibles e inscribirse
 3. Login con autenticación por rol (Spring Security)
 4. Servicios REST para:
-	_ Consultar cursos disponibles
-	_ Registrar empleados a cursos
+	- Consultar cursos disponibles
+	- Registrar empleados a cursos
 5. Acceso restringido a los endpoints según el rol
 6. Administración del ciclo de vida del proyecto con tareas y sprints
 
@@ -35,8 +35,8 @@ Formas parte del equipo de desarrollo de un sistema interno para una empresa que
 * Inicializa el proyecto con Spring Initializr (usa Maven o Gradle).
 * Agrega las dependencias necesarias: ***spring-boot-starter-web spring-boot-starter-data-jpa spring-boot-starter-security spring-boot-starter-thymeleaf (opcional)***
 * Implementa controladores que gestionen vistas con Spring MVC:
-	_/admin/cursos: Vista para gestionar cursos
-	_/empleado/cursos: Vista para ver cursos disponibles
+  	- /admin/cursos: Vista para gestionar cursos
+	- /empleado/cursos: Vista para ver cursos disponibles
 
 3. Capa de acceso a datos (Spring Data JPA)
 
@@ -49,15 +49,15 @@ Formas parte del equipo de desarrollo de un sistema interno para una empresa que
 
 * Implementa sistema de login con usuarios y roles: ADMIN, EMPLEADO
 * Protege rutas:
-_ /admin/** accesibles solo para ADMIN
-_ /empleado/** accesibles para usuarios autenticados con rol EMPLEADO
+	- /admin/** accesibles solo para ADMIN
+	- /empleado/** accesibles para usuarios autenticados con rol EMPLEADO
 * Configura WebSecurityConfigurerAdapter (o SecurityFilterChain si usas Spring Security 6+)
 
 5. Servicios REST para interoperabilidad
 
 * Expón endpoints REST para:
-_ GET /api/cursos: Devuelve el listado de cursos disponibles
-_ POST /api/inscripciones: Registra a un empleado en un curso
+	- GET /api/cursos: Devuelve el listado de cursos disponibles
+	- POST /api/inscripciones: Registra a un empleado en un curso
 * Configura el controlador REST (@RestController)
 * Asegura los endpoints con JWT o Basic Auth
 * Usa @CrossOrigin si deseas permitir peticiones desde clientes externos
@@ -65,17 +65,17 @@ _ POST /api/inscripciones: Registra a un empleado en un curso
 ## Producto Esperado
 
 * Proyecto completo en Spring Boot con:
-_ Controladores Web y REST
-_ Repositorios JPA
+	- Controladores Web y REST
+	- Repositorios JPA
 _ Seguridad implementada
 * Tablero con tareas en gestor de proyecto
 * Base de datos con relaciones funcionando
 * Rutas protegidas por roles
 * Documentación con:
-_ Diagrama de clases
-_ Diagrama del flujo de navegación
-_ Evidencia del uso del gestor de proyecto
-_ Instrucciones para ejecutar el proyecto (README.md)
+	- Diagrama de clases
+	- Diagrama del flujo de navegación
+	- Evidencia del uso del gestor de proyecto
+	- Instrucciones para ejecutar el proyecto (README.md)
 
 ### Ejecución del Proyecto
 
@@ -112,7 +112,7 @@ También incluye un DataLoader que carga automáticamente:
 * Cursos de ejemplo
 
 ## 4.Acceso al Sistema
-** Login estándar (ventana emergente del navegador)**
+**Login estándar (ventana emergente del navegador)**
 
 Spring Security solicitará usuario y contraseña mediante **Basic Auth**.
 
