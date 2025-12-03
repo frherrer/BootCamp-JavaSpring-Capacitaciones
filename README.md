@@ -104,7 +104,14 @@ No se requiere crear manualmente la base de datos.
 ```
 spring.jpa.hibernate.ddl-auto=update
 ```
+Editar `src/main/resources/application.properties` y poner los datos de conexión a la base de datos. Ejemplo:
 
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/capacitaciones
+   spring.datasource.username=tu_usuario
+   spring.datasource.password=tu_contraseña
+   ```
+   
 También incluye un DataLoader que carga automáticamente:
 
 * 1 usuario admin
@@ -122,6 +129,8 @@ Credenciales:
 | Administrador | `admin`    | `admin`    |
 | Empleado      | `empleado` | `empleado` |
 
+![Catalogo](img//1.png)
+
 ## 5. Vistas del Sistema
 
 **Panel del Administrador**
@@ -130,22 +139,31 @@ http://localhost:8080/admin/cursos
 ```
 
 Permite:
-
-* Crear cursos
 * Listar cursos
-* Asignar instructores
+![Catalogo](img//2.png)
 
 **Panel del Empleado**
 ```
 http://localhost:8080/empleado/cursos
 ```
-
 Permite:
 
 * Ver cursos disponibles
-* Inscribirse en un curso
+![Catalogo](img//3.png)
 
 ## 6.APIs REST (para Postman o integración externa)
+
+Primero es necesario solicitar el token de autentificación
+```
+POST http://localhost:8080/api/auth/login
+
+{
+"username": "admin",
+"password": "admin"
+}
+```
+![Catalogo](img//4.png)
+
 ### 1. Listar cursos disponibles
 ```
 GET http://localhost:8080/api/cursos
@@ -160,7 +178,7 @@ Ejemplo respuesta:
   { "id": 2, "nombre": "Primeros Auxilios", "vacantes": 15 }
 ]
 ```
-
+![Catalogo](img//5.png)
 ### 2. Registrar empleado a un curso
 ```
 POST http://localhost:8080/api/inscripciones
@@ -179,5 +197,6 @@ Respuesta:
   "fechaInscripcion": "2025-12-03T23:00:14.829Z"
 }
 ```
-
+![Catalogo](img//6.png)
+![Catalogo](img//7.png)
 📌
