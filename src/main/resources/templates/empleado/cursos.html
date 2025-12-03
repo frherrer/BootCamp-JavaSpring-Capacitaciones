@@ -1,0 +1,14 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Empleado - Cursos</title></head>
+<body>
+  <h1>Cursos disponibles</h1>
+  <ul>
+    <li th:each="c : ${cursos}">
+      <strong th:text="${c.titulo}">Titulo</strong> - <span th:text="${c.descripcion}">Desc</span>
+    </li>
+  </ul>
+  
+  <a href="/logout">Cerrar sesión</a>
+</body>
+</html>

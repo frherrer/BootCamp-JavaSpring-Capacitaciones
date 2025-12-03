@@ -1,0 +1,18 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Admin - Cursos</title></head>
+<body>
+  <h1>Administración de Cursos</h1>
+  <table border="1">
+    <tr><th>ID</th><th>Título</th><th>Instructor</th><th>Inicio</th><th>Fin</th></tr>
+    <tr th:each="c : ${cursos}">
+      <td th:text="${c.id}">1</td>
+      <td th:text="${c.titulo}">Titulo</td>
+      <td th:text="${c.instructor.nombre}">Instructor</td>
+      <td th:text="${c.fechaInicio}">inicio</td>
+      <td th:text="${c.fechaFin}">fin</td>
+    </tr>
+  </table>
+  <a href="/logout">Cerrar sesión</a>
+</body>
+</html>
